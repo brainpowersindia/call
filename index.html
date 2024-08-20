@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to Phone</title>
+    
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noarchive">
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function redirectToPhoneNumber() {
+            const phoneNumber = getQueryParam('phone'); // Get the phone parameter from the URL
+            if (phoneNumber) {
+                window.location.href = `tel:${phoneNumber}`;
+            } else {
+                alert('Phone number parameter is missing in the URL');
+                console.error('Phone parameter is missing in the URL');
+            }
+        }
+
+        window.onload = redirectToPhoneNumber;
+    </script>
+</head>
+<body>
+    <!-- Optional content here -->
+</body>
+</html>
